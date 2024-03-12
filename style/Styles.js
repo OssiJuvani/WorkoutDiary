@@ -1,28 +1,36 @@
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight + 20,
-  },
-  picker: {
-    height: 250,
-    width: 200,
-    marginBottom: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginBottom: 16,
-    padding: 8,
-    width: 200,
+    // marginTop: StatusBar.currentHeight + 20,
   },
   button: {
     backgroundColor: 'blue',
     color: 'white',
-    padding: 10,
+    padding: 2,
     borderRadius: 5,
+    
   },  
+  txtInput: {
+
+  
+  },
+
+  container: {
+    marginTop: 30,
+    padding: 10,
+    alignItems: "center",
+    flex: 1,
+  },
+  header: {
+    fontSize: 34,
+    paddingBottom: 30,
+
+  },
+  cardStyle: {
+    margin: 5,
+    width: "80%",
+  },
 });
 
-export default styles;
+export default Styles;

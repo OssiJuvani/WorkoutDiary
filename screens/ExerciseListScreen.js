@@ -1,23 +1,50 @@
-import React, { useContext } from 'react';
-import { View, Text } from 'react-native';
-import { ExerciseContext } from '../context/Contexts';
+import { ScrollView, View } from "react-native";
+import { Card, Chip, Icon, Text } from "react-native-paper";
+import { useContext } from "react";
+import { ExerciseContext, SettingsUnitsContext } from "../context/Contexts";
+import Styles from "../style/Styles";
+import SportListIcon from "../components/SportListIcon";
 
-const ExerciseListScreen = () => {
+export default function ExerciseListScreen() {
   const { exercises } = useContext(ExerciseContext);
+  const { selectedUnits } = useContext(SettingsUnitsContext);
+
+  const FormatDate = (date) => {
+    newDateObject = new Date(date);
+  
+    let formattedDate =
+      newDateObject.getDate() +
+      "." +
+      Number(newDateObject.getMonth() + 1) +
+      "." +
+      newDateObject.getFullYear();
+  
+    return formattedDate;
+  };
 
   return (
-    <View>
-      {/* Display a list of exercises */}
-      {exercises.map((exercise, index) => (
-        <View key={index}>
-          <Text>{`Sport Type: ${exercise.sportType}`}</Text>
-          <Text>{`Distance: ${exercise.distance} km`}</Text>
-          <Text>{`Duration: ${exercise.duration} minutes`}</Text>
-          <Text>{`Date: ${exercise.date}`}</Text>
-        </View>
-      ))}
-    </View>
+    <ScrollView>
+      <View style={Styles.container}>
+        {exercises.map((e, i) => (
+          <Card key={i} style={Styles.cardStyle}>
+            <Card.Content>
+            <SportListIcon
+                sport={e.sport}
+              />
+              <Text variant="titleLarge">{e.selectedSport}</Text>
+              <Text variant="titleMedium">
+              {selectedUnits === "km"
+                ? e.distance + " km"
+                : (e.distance / 1.609344).toFixed(2) +
+                  " miles"}
+              </Text>
+              <Text>Duration: {e.duration} min</Text>
+              <Text>Date: {FormatDate(e.date)}</Text>
+            </Card.Content>
+          </Card>
+        ))}
+      </View>
+    </ScrollView>
   );
-};
+}
 
-export default ExerciseListScreen;

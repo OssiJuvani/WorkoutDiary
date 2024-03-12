@@ -29,7 +29,7 @@ export default function Navigation() {
 
             if (route.name === "Add Workout") {
               iconName = focused ? "add-outline" : "add";
-            } else if (route.name === "List Of Exercises") {
+            } else if (route.name === "All Exercises") {
               iconName = focused ? "list-outline" : "list";
             } else if (route.name === "Settings") {
               iconName = focused ? "cog-outline" : "cog";
@@ -44,8 +44,9 @@ export default function Navigation() {
         <Tab.Screen
           options={{
             tabBarBadge: Object.keys(exercises).length,
+            tabBarBadgeStyle: { backgroundColor: Colors.primary }
           }}
-          name="List Of Exercises"
+          name="All Exercises"
           component={ExerciseListScreen}
         />
         <Tab.Screen name="Settings" component={SettingsScreen} />

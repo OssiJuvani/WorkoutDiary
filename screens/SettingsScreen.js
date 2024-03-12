@@ -1,35 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import Styles from '../style/Styles';
+import { SettingsUnitsContext } from '../context/Contexts';
 
 
 const SettingsScreen = () => {
-  const [unit, setUnit] = useState('km'); // Default unit is kilometers
-
+  const { selectedUnits, setSelectedUnits } = useContext(SettingsUnitsContext); // Default unit is kilometers
+  console.log(selectedUnits);
   const handleUnitChange = (newUnit) => {
-    setUnit(newUnit);
+    setSelectedUnits(newUnit);
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Settings</Text>
+    <View style={Styles.container}>
+      
 
-      <View style={styles.radioContainer}>
-        <Text style={styles.radioLabel}>Select Unit:</Text>
-        <View style={styles.radioGroup}>
+      <View>
+        <Text>Select Unit:</Text>
+        <View>
           <RadioButton
             value="km"
-            status={unit === 'km' ? 'checked' : 'unchecked'}
+            status={selectedUnits === 'km' ? 'checked' : 'unchecked'}
             onPress={() => handleUnitChange('km')}
           />
-          <Text style={styles.radioText}>Kilometers</Text>
+          <Text>Kilometers</Text>
 
           <RadioButton
             value="miles"
-            status={unit === 'miles' ? 'checked' : 'unchecked'}
-            onPress={() => handleUnitChange('miles')}
+            status={selectedUnits === 'ml' ? 'checked' : 'unchecked'}
+            onPress={() => handleUnitChange('ml')}
           />
-          <Text style={styles.radioText}>Miles</Text>
+          <Text>Miles</Text>
         </View>
       </View>
     </View>
