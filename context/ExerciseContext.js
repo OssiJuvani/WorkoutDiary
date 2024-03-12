@@ -1,5 +1,3 @@
-// context/ExerciseContext.js
-
 import React, { createContext, useState } from 'react';
 
 const ExerciseContext = createContext();
