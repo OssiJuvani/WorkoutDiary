@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import styles from '../style/styles';
+
 
 const SettingsScreen = () => {
   const [unit, setUnit] = useState('km'); // Default unit is kilometers

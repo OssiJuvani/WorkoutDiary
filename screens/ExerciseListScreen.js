@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
-import { ExerciseContext } from '../context/ExerciseContext';
-import styles from '../style/styles';
-
+import { ExerciseContext } from '../context/Contexts';
 
 const ExerciseListScreen = () => {
   const { exercises } = useContext(ExerciseContext);
