@@ -1,7 +1,8 @@
 import { Icon } from "react-native-paper";
+import { View } from 'react-native';
 
 export default function SportListIcon({
-  sport
+  sport, style
 }) {
   let sportIcon;
   switch (sport) {
@@ -17,10 +18,12 @@ export default function SportListIcon({
    
   }
   return (
-    <Icon
-    source={sportIcon}
-    size={40}
-  />
+    <View style={style}>
+        <Icon
+        source={sportIcon}
+        size={40}
+    />
+  </View>
   );
 }
 

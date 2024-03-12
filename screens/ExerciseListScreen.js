@@ -24,12 +24,13 @@ export default function ExerciseListScreen() {
 
   return (
     <ScrollView>
-      <View style={Styles.container}>
+      <View style={Styles.listContainer}>
         {exercises.map((e, i) => (
           <Card key={i} style={Styles.cardStyle}>
-            <Card.Content>
+            <Card.Content style={Styles.cardContent}>
             <SportListIcon
                 sport={e.sport}
+                style={Styles.sportListIcon}
               />
               <Text variant="titleLarge">{e.selectedSport}</Text>
               <Text variant="titleMedium">

@@ -97,9 +97,12 @@ export default function AddExerciseScreen() {
     <SafeAreaProvider>
       <View >
         <ScrollView>
+          <View style={Styles.exerciseButtons}>
           <SegmentedButtons
+            
             value={sport}
             onValueChange={setSport}
+            theme={{ roundness: 0 }}
             buttons={[
               {
                 value: "Run",
@@ -118,6 +121,7 @@ export default function AddExerciseScreen() {
               },
             ]}
           />
+          </View>
             <TextInput
               label={`Distance (${selectedUnits})`}
               keyboardType="numeric"

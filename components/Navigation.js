@@ -21,7 +21,7 @@ export default function Navigation() {
             tabBarHideOnKeyboard: true,
             tabBarShowLabel: false,
             tabBarStyle: {
-            backgroundColor: Colors.tertiary
+            backgroundColor: Colors.tertiaryThree
           },
           headerShown: true,
           tabBarIcon: ({ focused, color }) => {
@@ -44,7 +44,7 @@ export default function Navigation() {
         <Tab.Screen
           options={{
             tabBarBadge: Object.keys(exercises).length,
-            tabBarBadgeStyle: { backgroundColor: Colors.primary }
+            tabBarBadgeStyle: { backgroundColor: Colors.primaryOne }
           }}
           name="All Exercises"
           component={ExerciseListScreen}
