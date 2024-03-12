@@ -1,8 +1,10 @@
-// screens/AddExerciseScreen.js
-
 import React, { useState, useContext } from 'react';
 import { View, TextInput, Button, Alert } from 'react-native';
 import { ExerciseContext } from '../context/ExerciseContext';
+import styles from '../style/styles';
+import { Picker } from '@react-native-picker/picker';
+
+const sportTypeOptions = ['Run', 'Ski', 'Gym'];
 
 const AddExerciseScreen = () => {
   const { addExercise } = useContext(ExerciseContext);
@@ -25,8 +27,6 @@ const AddExerciseScreen = () => {
     };
 
     addExercise(exercise);
-
-    // Reset input fields
     setSportType('');
     setDistance('');
     setDuration('');
@@ -38,34 +38,42 @@ const AddExerciseScreen = () => {
   };
 
   return (
-    <View>
-      {/* UI for exercise input fields, date picker, and add button */}
+    <View style={styles.container}>
+      <Picker
+        selectedValue={sportType}
+        onValueChange={(itemValue) => setSportType(itemValue)}
+        style={styles.picker}
+      >
+        <Picker.Item label="Select Sport Type" value="" />
+        {sportTypeOptions.map((option) => (
+          <Picker.Item key={option} label={option} value={option} />
+        ))}
+      </Picker>
+
       <TextInput
-        placeholder="Sport Type"
-        value={sportType}
-        onChangeText={(text) => setSportType(text)}
-      />
-      <TextInput
+        style={styles.input}
         placeholder="Distance (in km)"
         value={distance}
         onChangeText={(text) => setDistance(text)}
         keyboardType="numeric"
       />
       <TextInput
+        style={styles.input}
         placeholder="Duration (in minutes)"
         value={duration}
         onChangeText={(text) => setDuration(text)}
         keyboardType="numeric"
       />
       <TextInput
+        style={styles.input}
         placeholder="Date"
         value={date}
         onChangeText={(text) => setDate(text)}
         onFocus={() => {
-          // Implement date picker here
         }}
       />
-      <Button title="Add Exercise" onPress={handleAddExercise} />
+      <Button title="Add Exercise" onPress={handleAddExercise} style={styles.button} />
+      
     </View>
   );
 };
