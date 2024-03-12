@@ -13,11 +13,12 @@ const SettingsScreen = () => {
 
   return (
     
-      <View>
+      <View style={Styles.settingContainer}>
         <Text>Select Unit:</Text>
         <View>
         <Text>Kilometers</Text>
           <RadioButton
+            style={Styles.settingsRadioBtnView}
             value="km"
             // uncheckedColor={"#F0F0F0"}
             color={'black'}

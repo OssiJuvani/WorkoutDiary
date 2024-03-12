@@ -58,24 +58,24 @@ const Styles = StyleSheet.create({
   },
 
   /* Settings */
-  // settingContainer: {
-  //   flex: 1,
-  //   flexDirection: 'row',
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
+   settingContainer: {
+     flex: 1,
+     flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+   },
   
-  // settingsRadioBtnView: {
-  //   flexDirection: "row",
-  //   alignSelf: "flex-start",
-  // },
-  // radioBtnLabel: {
-  //   flex: 0.3,
-  //   alignSelf: "center",
-  // },
-  // radioBtnLabelText: {
-  //   fontWeight: "bold",
-  // },
+   settingsRadioBtnView: {
+     flexDirection: "row",
+     alignSelf: "flex-start",
+   },
+   radioBtnLabel: {
+     flex: 0.3,
+     alignSelf: "center",
+   },
+   radioBtnLabelText: {
+     fontWeight: "bold",
+   },
 });
 
 export default Styles;

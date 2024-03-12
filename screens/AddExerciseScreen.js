@@ -50,34 +50,34 @@ export default function AddExerciseScreen() {
   };
 
   const VerifyInput = (input, isFloatAllowed) => {
-    let errorText;
-    let errorHeading;
+    let error;
+    let errorTitle;
     if (input < 0 || input === "-") {
       errorFound = true;
-      errorHeading = "Negative input";
-      errorText = "Only positive numbers are allowed";
+      errorTitle = "Negative input";
+      error = "Only positive numbers are allowed";
     } else if (isNaN(input)) {
       errorFound = true;
-      errorHeading = "Invalid input";
-      errorText = "Only numbers are allowed";
+      errorTitle = "Invalid input";
+      error = "Only numbers are allowed";
     } else if (input.includes(".")) {
       if (isFloatAllowed) {
         if (input.split(".")[1].length > 2) {
           errorFound = true;
-          errorHeading = "Decimal error";
-          errorText = "Only numbers with two decimal places are allowed";
+          errorTitle = "Decimal error";
+          error = "Only numbers with two decimal places are allowed";
         } else {
           errorFound = false;
         }
       } else {
         errorFound = true;
-        errorHeading = "Integer error";
-        errorText = "Only whole numbers are allowed";
+        errorTitle = "Integer error";
+        error = "Only whole numbers are allowed";
       }
     } else {
       errorFound = false;
     }
-    return { errorFound, errorHeading, errorText };
+    return { errorFound, errorTitle, error };
   };
 
   const FormatDate = (date) => {
